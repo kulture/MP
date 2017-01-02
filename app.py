@@ -105,9 +105,7 @@ def Graph():
 #ERROR
 @app.route('/Insufficient-Params/')
 def Oops():
-	return r'<a href=\"http://www.example.com\">here</a>'
-	return "Insufficient Parameters! Go back and try again!"
-	
+	return r'Insufficient Parameters! Go <a href=\"http://www.example.com\">back</a> and try again!'
 	
 		
 if __name__ == '__main__':
