@@ -73,8 +73,8 @@ def Mini_Project():
 @app.route('/Graph/')
 def Graph():
 	#verify data exists
-	if not app.vars['Prices']:
-		return redirect(url_for('Oops'))
+	#if not app.vars['Prices']:
+		#return redirect(url_for('Oops'))
 	
 	col = ['red', 'blue', 'green', 'yellow']
 	p = figure(tools='pan,box_zoom,reset,save', x_axis_label='Date', y_axis_label='Price ($)')
