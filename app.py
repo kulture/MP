@@ -38,10 +38,7 @@ def get_data():
 		return datetime(int(y),int(m),int(d))
 	app.vars['Dates'] = map(convert_date, z[0])
 	app.vars['Prices'] = z[1:]
-	if len(app.vars['Prices'])==0:
-		return redirect(url_for('Oops'))
-	else:
-		return 
+	
 	
 @app.route('/')
 def toMP():
@@ -75,6 +72,10 @@ def Mini_Project():
 #Generate Graph
 @app.route('/Graph/')
 def Graph():
+	#verify data exists
+	if len(app.vars['Prices'])==0:
+		return redirect(url_for('Oops'))
+	
 	col = ['red', 'blue', 'green', 'yellow']
 	p = figure(tools='pan,box_zoom,reset,save', x_axis_label='Date', y_axis_label='Price ($)')
 	get_data()
