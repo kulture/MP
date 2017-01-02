@@ -1,0 +1,37 @@
+<!doctype html>
+<title>Andrew's Milestone</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>
+<div class=page>
+	<div class=metanav>
+		<div align="center">
+			<h1>
+				Check Your Stocks!
+			</h4>
+			<h4>
+				Please enter a stock symbol (e.g. APPL), include additional features as desired.<br>
+			</h4>
+			<h5>
+				<i>NOTE: You must enter a ticker symbol and check at least 1 box.</i>
+			</h5>
+		</div>
+		<form id='BaseForm' method='post' action='/Mini-Project/' >
+			<div align="center">
+				<p>
+					Ticker symbol: <input type='text' name='symbol' /><br>
+				</p>
+			</div>
+			<div align="left">
+				<input type="checkbox" name='Close'>Closing price<br><br>
+				<input type="checkbox" name='CloseA'>Adjusted closing price<br><br>
+				<input type="checkbox" name='Open'>Opening price<br><br>
+				<input type="checkbox" name='OpenA'>Adjusted opening price<br><br>
+			</div>
+			<div align="center">
+				<p>
+					<br><br><big><input type='submit' value='Display Chart' /></big>
+				</p>
+			</div>
+		</form>
+	</div>
+</div>
+</html>
