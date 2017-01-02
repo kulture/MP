@@ -33,12 +33,14 @@ def get_data():
 	r = requests.get(app.vars['URL'])
 	raw = pd.DataFrame(r.json())
 	z = zip(*raw.ix[1,0]) #strip non-data elements from json, flip
+	if not z: #verify data exists
+		return False
 	def convert_date(x):
 		y, m, d =x.split('-')
 		return datetime(int(y),int(m),int(d))
 	app.vars['Dates'] = map(convert_date, z[0])
 	app.vars['Prices'] = z[1:]
-	
+	return True
 	
 @app.route('/')
 def toMP():
@@ -72,14 +74,11 @@ def Mini_Project():
 #Generate Graph
 @app.route('/Graph/')
 def Graph():
-	#verify data exists
-	#if not app.vars['Prices']:
-		#return redirect(url_for('Oops'))
-	
+	if not get_data():
+		return redirect(url_for('Oops'))
 	col = ['red', 'blue', 'green', 'yellow']
 	p = figure(tools='pan,box_zoom,reset,save', x_axis_label='Date', y_axis_label='Price ($)')
-	get_data()
-
+	
 	#generate chart 
 	i=0
 	for key in app.vars['CheckBoxes']:
