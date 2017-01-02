@@ -1,2 +1,2 @@
 
-web: gunicorn app: MP
+web: gunicorn app:MP
