@@ -38,7 +38,10 @@ def get_data():
 		return datetime(int(y),int(m),int(d))
 	app.vars['Dates'] = map(convert_date, z[0])
 	app.vars['Prices'] = z[1:]
-	return 
+	if len(app.vars['Prices'])==0:
+		return redirect(url_for('Oops'))
+	else:
+		return 
 	
 @app.route('/')
 def toMP():
