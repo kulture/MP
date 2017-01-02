@@ -108,7 +108,7 @@ def Oops():
 	
 		
 if __name__ == '__main__':
-    MP.run()
+    MP.run(port=33507)
 
 
 # MP.vars['symbol'] = request.form['symbol']
