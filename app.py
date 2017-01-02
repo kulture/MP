@@ -73,7 +73,7 @@ def Mini_Project():
 @app.route('/Graph/')
 def Graph():
 	#verify data exists
-	if len(app.vars['Prices'])==0:
+	if not app.vars['Prices']:
 		return redirect(url_for('Oops'))
 	
 	col = ['red', 'blue', 'green', 'yellow']
