@@ -44,15 +44,14 @@ def get_data():
 	
 @app.route('/')
 def toMP():
-    return redirect(url_for('Mini_Project'))
-
+	return redirect(url_for('Mini_Project'))
 	
 #Main Form
 @app.route('/Mini-Project/', methods=['GET','POST'])
 def Mini_Project():
-    if request.method == 'GET':
-        return render_template('BaseForm.html')
-    else:
+	if request.method == 'GET':
+        	return render_template('BaseForm.html')
+    	else:
 		app.vars['Symbol'] = request.form['symbol'].upper()
 		if app.vars['Symbol']=='':
 			return redirect(url_for('Oops'))
@@ -106,6 +105,7 @@ def Graph():
 #ERROR
 @app.route('/Insufficient-Params/')
 def Oops():
+	return r'<a href=\"http://www.example.com\">here</a>'
 	return "Insufficient Parameters! Go back and try again!"
 	
 	
