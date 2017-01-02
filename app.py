@@ -29,7 +29,7 @@ def gen_url(columns='', key='ooAjSowGyRDhfqU-XSvZ'):
 	return url
 
 def get_data():
-	"""processes API request and returns data as list."""
+	"""processes API request sets global list variables (dates and prices)."""
 	r = requests.get(app.vars['URL'])
 	raw = pd.DataFrame(r.json())
 	z = zip(*raw.ix[1,0]) #strip non-data elements from json, flip
